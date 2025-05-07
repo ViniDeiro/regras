@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mural de Regras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1c2331;
+            --secondary-color: #a67c52;
+            --text-color: #333;
+            --background-color: #f5f1e9;
+            --border-color: #ccc;
+            --accent-color: #9c7a54;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            overflow: hidden;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-weight: 300;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        #rules-container {
+            padding: 2rem;
+        }
+
+        .rule {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        .rule:last-child {
+            border-bottom: none;
+        }
+
+        .rule-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            width: 100px;
+            text-align: right;
+            padding-top: 0.25rem;
+        }
+
+        .rule-content {
+            flex-grow: 1;
+        }
+
+        .rule-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .rule-subsection {
+            margin-left: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent-color);
+            margin-top: 1rem;
+            display: flex;
+        }
+
+        .subsection-number {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Sequential reveal of rules */
+        .rule:nth-child(1) { animation-delay: 0.3s; }
+        .rule:nth-child(2) { animation-delay: 0.6s; }
+        .rule:nth-child(3) { animation-delay: 0.9s; }
+        .rule:nth-child(4) { animation-delay: 1.2s; }
+
+        /* Hover effects */
+        .rule:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(166, 124, 82, 0.2);
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .rule {
+                flex-direction: column;
+            }
+            
+            .rule-number {
+                width: auto;
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+            
+            body {
+                padding: 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Constituição do Mural de Regras</h1>
+            <p class="subtitle">Estabelecida por Vinicius Deiró Lopes</p>
+        </header>
+        
+        <main id="rules-container">
+            <div class="rule" id="rule1">
+                <div class="rule-number">Artigo 1</div>
+                <div class="rule-content">
+                    <p>O poder de criar e estabelecer regras é atribuído exclusivamente a Vinicius Deiró Lopes, sendo esta uma prerrogativa inalienável e uma responsabilidade a ser exercida com prudência e sabedoria.</p>
+                </div>
+            </div>
+
+            <div class="rule" id="rule2">
+                <div class="rule-number">Artigo 2</div>
+                <div class="rule-content">
+                    <p>Todo fato declarado será considerado verdade absoluta. Caso haja contestação, o ônus da prova recai sobre aquele que questiona a veracidade do fato previamente estabelecido.</p>
+                    <div class="rule-subsection">
+                        <div class="subsection-number">§1</div>
+                        <p>Na eventualidade de ser apresentada uma declaração subsequente que contradiga uma verdade anteriormente estabelecida, a nova declaração deverá ser comprovada para ter validade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule" id="rule3">
+                <div class="rule-number">Artigo 3</div>
+                <div class="rule-content">
+                    <p>A validade de uma regra não será comprometida por eventuais erros ortográficos presentes em sua redação, prevalecendo o espírito e a intenção da norma sobre sua forma.</p>
+                </div>
+            </div>
+
+            <div class="rule" id="rule4">
+                <div class="rule-number">Artigo 4</div>
+                <div class="rule-content">
+                    <p>O processo de impeachment será aplicável exclusivamente aos administradores. O criador das regras goza de imunidade plena e proteção máxima, não estando sujeito aos princípios democráticos. A transferência de poder somente ocorrerá por decisão voluntária do próprio criador.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Este documento constitucional está sujeito a emendas conforme determinação de seu criador.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Efeito de luz no cabeçalho
+            const header = document.querySelector('header');
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!header) return;
+                
+                const headerRect = header.getBoundingClientRect();
+                const mouseX = e.clientX - headerRect.left;
+                const mouseY = e.clientY - headerRect.top;
+                
+                if (
+                    mouseX >= 0 && 
+                    mouseX <= headerRect.width && 
+                    mouseY >= 0 && 
+                    mouseY <= headerRect.height
+                ) {
+                    const x = mouseX / headerRect.width;
+                    const y = mouseY / headerRect.height;
+                    
+                    header.style.background = 
+                        `radial-gradient(circle at ${x * 100}% ${y * 100}%, 
+                        rgba(166, 124, 82, 0.2) 0%, 
+                        var(--primary-color) 50%)`;
+                } else {
+                    header.style.background = 'var(--primary-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
