@@ -1,0 +1,21 @@
+# Dependências
+/node_modules
+/.pnp
+.pnp.js
+
+# Arquivos de build
+/.next/
+/out/
+/build
+
+# Arquivos de debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos locais
+.env*.local
+
+# Cache
+.vercel
+.env 
