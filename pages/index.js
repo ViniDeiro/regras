@@ -97,6 +97,13 @@ export default function Home() {
             <p>O processo de impeachment será aplicável exclusivamente aos administradores. O criador das regras goza de imunidade plena e proteção máxima, não estando sujeito aos princípios democráticos. A transferência de poder somente ocorrerá por decisão voluntária do próprio criador.</p>
           </div>
         </div>
+
+        <div className="rule" id="rule5">
+          <div className="rule-number">Artigo 5</div>
+          <div className="rule-content">
+            <p>Nenhuma emenda da constituição protege contra as regras criadas. As regras criadas devem ser cumpridas e respeitadas em qualquer circunstância, sobrepondo-se a quaisquer outras normas ou provisões constitucionais existentes.</p>
+          </div>
+        </div>
       </main>
 
       <footer>
