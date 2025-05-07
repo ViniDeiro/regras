@@ -104,6 +104,13 @@ export default function Home() {
             <p>Nenhuma emenda da constituição protege contra as regras criadas. As regras criadas devem ser cumpridas e respeitadas em qualquer circunstância, sobrepondo-se a quaisquer outras normas ou provisões constitucionais existentes.</p>
           </div>
         </div>
+
+        <div className="rule" id="rule6">
+          <div className="rule-number">Artigo 6</div>
+          <div className="rule-content">
+            <p>Indivíduos podem submeter sugestões de regras para análise. Tais sugestões passarão por avaliação exclusiva do criador das regras e, caso aprovadas, serão incorporadas ao conjunto normativo vigente com plena força e validade.</p>
+          </div>
+        </div>
       </main>
 
       <footer>
